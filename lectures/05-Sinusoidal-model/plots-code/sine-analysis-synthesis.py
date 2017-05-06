@@ -7,11 +7,10 @@ from scipy.signal import blackmanharris
 from scipy.fftpack import ifft, fftshift
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import dftModel as DFT
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 M = 601
 w = np.blackman(M)
 N = 1024

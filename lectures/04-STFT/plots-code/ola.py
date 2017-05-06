@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.io.wavfile import read
 
-(fs, x) = read('../../../sounds/oboe-A4.wav')
+fs, x = read('../../../sounds/oboe-A4.wav')
 M = 256
 H = 128
 start = .8 * fs

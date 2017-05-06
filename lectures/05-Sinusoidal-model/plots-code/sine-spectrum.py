@@ -5,11 +5,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import dftModel as DFT
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/sine-440.wav')
+fs, x = UF.wavread('../../../sounds/sine-440.wav')
 M = 400
 x1 = x[2000:2000 + M]
 N = 2048

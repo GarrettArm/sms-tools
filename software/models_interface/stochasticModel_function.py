@@ -1,9 +1,10 @@
 # function to call the main analysis/synthesis functions in software/models/stochasticModel.py
+import os
+import sys
 
 import numpy as np
 import matplotlib.pyplot as plt
-import os
-import sys
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF
 import stochasticModel as STM
@@ -17,7 +18,7 @@ def main(inputFile='../../sounds/ocean.wav', H=256, N=512, stocf=.1):
     """
 
     # read input sound
-    (fs, x) = UF.wavread(inputFile)
+    fs, x = UF.wavread(inputFile)
 
     # compute stochastic model
     stocEnv = STM.stochasticModelAnal(x, H, N, stocf)

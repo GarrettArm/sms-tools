@@ -1,10 +1,12 @@
 # functions that implement transformations using the stft
 
-import numpy as np
 import sys
 import os
 import math
+
+import numpy as np
 from scipy.signal import resample
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import dftModel as DFT
 

@@ -10,7 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..
 import dftModel as DFT
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 M = 601
 w = np.blackman(M)
 N = 1024

@@ -1,9 +1,10 @@
 # function call to the transformation function of relevance to the stochasticModel
+import sys
+import os
 
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../transformations/'))
 import stochasticModel as STC
@@ -23,7 +24,7 @@ def main(inputFile='../../sounds/rain.wav', stocf=0.1, timeScaling=np.array([0, 
     H = 128
 
     # read input sound
-    (fs, x) = UF.wavread(inputFile)
+    fs, x = UF.wavread(inputFile)
 
     # perform stochastic analysis
     mYst = STC.stochasticModelAnal(x, H, H * 2, stocf)

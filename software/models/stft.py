@@ -1,8 +1,10 @@
 # functions that implement analysis and synthesis of sounds using the Short-Time Fourier Transform
 # (for example usage check stft_function.py in the models_interface directory)
 
-import numpy as np
 import math
+
+import numpy as np
+
 import dftModel as DFT
 
 

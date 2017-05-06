@@ -28,7 +28,7 @@ harmDevSlope = 0.1
 Ns = 512
 H = 128
 
-(fs, x) = UF.wavread(inputFile)
+fs, x = UF.wavread(inputFile)
 w = get_window(window, M)
 hfreq, hmag, hphase, xr = HPR.hprModelAnal(x, fs, w, N, H, t, minSineDur, nH, minf0, maxf0, f0et, harmDevSlope)
 

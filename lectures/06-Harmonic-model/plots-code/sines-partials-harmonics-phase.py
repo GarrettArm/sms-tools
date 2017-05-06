@@ -29,7 +29,7 @@ plt.axis([200, 1000, -2, 8])
 plt.title('pX + peaks (sine-440-490.wav)')
 
 
-(fs, x) = UF.wavread('../../../sounds/vibraphone-C6.wav')
+fs, x = UF.wavread('../../../sounds/vibraphone-C6.wav')
 w = np.blackman(401)
 N = 1024
 hN = N / 2
@@ -47,7 +47,7 @@ plt.plot(fs * iploc / N, ipphase, marker='x', color='b', alpha=1, linestyle='', 
 plt.axis([500, 10000, min(pX2), 25])
 plt.title('pX + peaks (vibraphone-C6.wav)')
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 w = np.blackman(651)
 N = 2048
 hN = N / 2

@@ -1,10 +1,11 @@
 # GUI frame for the stochasticModel_function.py
+import sys
+import os
 
 from Tkinter import *
 import tkFileDialog
 import tkMessageBox
-import sys
-import os
+
 import stochasticModel_function
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF

@@ -1,16 +1,16 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import os
 import sys
 import math
 
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
+import matplotlib.pyplot as plt
+import numpy as np
 
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DF
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/violin-B3.wav')
+fs, x = UF.wavread('../../../sounds/violin-B3.wav')
 N = 1024
 pin = 5000
 w = np.ones(801)

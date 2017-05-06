@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from scipy.signal import get_window
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
-
 import spsModel as SPS
 import utilFunctions as UF
 
@@ -33,7 +32,7 @@ def main(inputFile='../../sounds/bendir.wav', window='hamming', M=2001, N=2048, 
     H = 128
 
     # read input sound
-    (fs, x) = UF.wavread(inputFile)
+    fs, x = UF.wavread(inputFile)
 
     # compute analysis window
     w = get_window(window, M)

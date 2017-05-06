@@ -1,10 +1,12 @@
 # function to call the main analysis/synthesis functions in software/models/dftModel.py
 
+import os
+import sys
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import get_window
-import os
-import sys
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF
 import dftModel as DFT

@@ -1,10 +1,11 @@
 # function to call the main analysis/synthesis functions in software/models/stft.py
+import os
+import sys
 
 import numpy as np
 import matplotlib.pyplot as plt
-import os
-import sys
 from scipy.signal import get_window
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF
 import stft as STFT

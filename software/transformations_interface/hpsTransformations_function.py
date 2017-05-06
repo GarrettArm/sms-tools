@@ -1,10 +1,11 @@
 # function call to the transformation functions of relevance for the hpsModel
+import sys
+import os
 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import get_window
-import sys
-import os
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../transformations/'))
 import hpsModel as HPS
@@ -40,7 +41,7 @@ def analysis(inputFile='../../sounds/sax-phrase-short.wav', window='blackman', M
     H = 128
 
     # read input sound
-    (fs, x) = UF.wavread(inputFile)
+    fs, x = UF.wavread(inputFile)
 
     # compute analysis window
     w = get_window(window, M)

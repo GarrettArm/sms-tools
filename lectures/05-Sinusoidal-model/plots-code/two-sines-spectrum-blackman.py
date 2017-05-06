@@ -9,7 +9,7 @@ import utilFunctions as UF
 import dftModel as DF
 
 
-(fs, x) = UF.wavread('../../../sounds/sine-440-490.wav')
+fs, x = UF.wavread('../../../sounds/sine-440-490.wav')
 w = np.blackman(5291)
 N = 16384
 pin = .11 * fs

@@ -1,10 +1,12 @@
 # functions that implement analysis and synthesis of sounds using the Harmonic Model
 # (for example usage check the models_interface directory)
 
+import math
+
 import numpy as np
 from scipy.signal import blackmanharris, triang
 from scipy.fftpack import ifft
-import math
+
 import dftModel as DFT
 import utilFunctions as UF
 import sineModel as SM

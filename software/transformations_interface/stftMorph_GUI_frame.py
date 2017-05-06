@@ -1,10 +1,11 @@
 # GUI frame for the stftMorph_function.py
+import sys
+import os
 
 from Tkinter import *
 import tkFileDialog
 import tkMessageBox
-import sys
-import os
+
 import stftMorph_function as sT
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF

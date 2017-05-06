@@ -1,11 +1,13 @@
-import numpy as np
-from scipy.signal import resample, blackmanharris, triang
-from scipy.fftpack import fft, ifft, fftshift
 import copy
 import sys
 import os
-from scipy.io.wavfile import write, read
 import subprocess
+
+import numpy as np
+from scipy.signal import resample, blackmanharris, triang
+from scipy.fftpack import fft, ifft, fftshift
+from scipy.io.wavfile import write, read
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), './utilFunctions_C/'))
 try:
     import utilFunctions_C as UF_C

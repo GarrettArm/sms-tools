@@ -5,12 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import stft as STFT
 import sineModel as SM
 import utilFunctions as UF
 
-(fs, x) = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/speech-male.wav'))
+fs, x = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/speech-male.wav'))
 start = 1.25
 end = 1.79
 x1 = x[start * fs:end * fs]

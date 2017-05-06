@@ -1,16 +1,16 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import sys
-from scipy.fftpack import fft, fftshift
 import math
 
-sys.path.append('../../../software/models/')
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.fftpack import fft, fftshift
 
+sys.path.append('../../../software/models/')
 import utilFunctions as UF
 import dftModel as DF
 
 
-(fs, x) = UF.wavread('../../../sounds/soprano-E4.wav')
+fs, x = UF.wavread('../../../sounds/soprano-E4.wav')
 w = np.hamming(511)
 N = 512
 pin = 5000

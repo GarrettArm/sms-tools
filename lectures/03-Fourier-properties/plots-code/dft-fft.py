@@ -1,7 +1,8 @@
+import time
+
 import numpy as np
 from scipy.fftpack import fft
 import matplotlib.pyplot as plt
-import time
 
 timeDFT = np.array([])
 timeFFT = np.array([])

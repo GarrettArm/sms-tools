@@ -1,7 +1,9 @@
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
 from scipy.signal import sawtooth
+
 sys.path.append('../../../software/models/')
 import dftModel as DF
 

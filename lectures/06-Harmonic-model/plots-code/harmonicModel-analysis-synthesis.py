@@ -10,7 +10,7 @@ import sineModel as SM
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/vignesh.wav')
+fs, x = UF.wavread('../../../sounds/vignesh.wav')
 w = np.blackman(1201)
 N = 2048
 t = -90

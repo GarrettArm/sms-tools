@@ -39,7 +39,7 @@ def stochasticModelFrame(x, w, N, stocf):
 
 # example call of stochasticModel function
 if __name__ == '__main__':
-    (fs, x) = UF.wavread('../../../sounds/ocean.wav')
+    fs, x = UF.wavread('../../../sounds/ocean.wav')
     w = np.hanning(1024)
     N = 1024
     stocf = .1

@@ -1,13 +1,14 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import sys
 import math
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 sys.path.append('../../../software/models/')
 import utilFunctions as UF
 import dftModel as DFT
 
-(fs, x) = UF.wavread('../../../sounds/violin-B3.wav')
+fs, x = UF.wavread('../../../sounds/violin-B3.wav')
 w = np.hamming(1024)
 N = 1024
 pin = 5000

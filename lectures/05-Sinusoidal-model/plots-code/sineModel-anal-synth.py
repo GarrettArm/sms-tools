@@ -8,7 +8,8 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..
 import sineModel as SM
 import utilFunctions as UF
 
-(fs, x) = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/bendir.wav'))
+
+fs, x = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/bendir.wav'))
 x1 = x[0:50000]
 w = np.blackman(2001)
 N = 2048

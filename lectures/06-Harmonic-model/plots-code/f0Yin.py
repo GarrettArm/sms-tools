@@ -33,7 +33,7 @@ def f0Yin(x, N, H, minf0, maxf0):
 
 
 if __name__ == '__main__':
-    (fs, x) = UF.wavread('../../../sounds/bendir.wav')
+    fs, x = UF.wavread('../../../sounds/bendir.wav')
 
     plt.figure(1, figsize=(9, 7))
     N = 2048

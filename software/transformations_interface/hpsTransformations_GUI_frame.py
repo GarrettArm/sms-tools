@@ -1,11 +1,12 @@
 # GUI frame for the hpsTransformations_function.py
+import sys
+import os
 
 from Tkinter import *
 import tkFileDialog
 import tkMessageBox
-import sys
-import os
 import numpy as np
+
 import hpsTransformations_function as hT
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF

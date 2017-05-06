@@ -12,7 +12,7 @@ import dftModel as DFT
 import utilFunctions as UF
 import harmonicModel as HM
 
-(fs, x) = UF.wavread('../../../sounds/flute-A4.wav')
+fs, x = UF.wavread('../../../sounds/flute-A4.wav')
 pos = .8 * fs
 M = 601
 hM1 = int(math.floor((M + 1) / 2))

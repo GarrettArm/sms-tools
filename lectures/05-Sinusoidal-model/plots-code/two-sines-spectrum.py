@@ -9,7 +9,7 @@ import utilFunctions as UF
 import dftModel as DF
 
 
-(fs, x) = UF.wavread('../../../sounds/sine-440-490.wav')
+fs, x = UF.wavread('../../../sounds/sine-440-490.wav')
 w = np.hamming(3501)
 N = 4096
 pin = 5000

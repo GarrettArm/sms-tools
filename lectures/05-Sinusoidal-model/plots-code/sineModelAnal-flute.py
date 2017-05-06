@@ -9,7 +9,7 @@ import stft as STFT
 import sineModel as SM
 import utilFunctions as UF
 
-(fs, x) = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/flute-A4.wav'))
+fs, x = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/flute-A4.wav'))
 w = np.blackman(601)
 N = 1024
 H = 150

@@ -9,7 +9,7 @@ import stft as STFT
 import sineModel as SM
 import utilFunctions as UF
 
-(fs, x) = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/bendir.wav'))
+fs, x = UF.wavread(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../sounds/bendir.wav'))
 w = np.hamming(2001)
 N = 2048
 H = 200

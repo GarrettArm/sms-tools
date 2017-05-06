@@ -1,10 +1,11 @@
 # GUI frame for the stft_function.py
+import sys
+import os
 
 from Tkinter import *
 import tkFileDialog
 import tkMessageBox
-import sys
-import os
+
 import stft_function
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF

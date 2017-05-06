@@ -29,7 +29,7 @@ stocf = 0.1
 Ns = 512
 H = 128
 
-(fs, x) = UF.wavread(inputFile)
+fs, x = UF.wavread(inputFile)
 w = get_window(window, M)
 hfreq, hmag, hphase, mYst = HPS.hpsModelAnal(
     x, fs, w, N, H, t, nH, minf0, maxf0, f0et, harmDevSlope, minSineDur, Ns, stocf)

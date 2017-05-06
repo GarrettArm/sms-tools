@@ -1,12 +1,13 @@
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.fftpack import fft, fftshift
-import sys
 
 sys.path.append('../../../software/models/')
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 N = 512
 M = 401
 hN = N / 2

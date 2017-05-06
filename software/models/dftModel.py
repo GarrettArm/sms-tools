@@ -1,10 +1,14 @@
 # functions that implement analysis and synthesis of sounds using the Discrete Fourier Transform
 # (for example usage check dftModel_function.py in the models_interface directory)
 
-import numpy as np
 import math
+
+import numpy as np
 from scipy.fftpack import fft, ifft
+
 import utilFunctions as UF
+
+
 tol = 1e-14                                                      # threshold used to compute phase
 
 

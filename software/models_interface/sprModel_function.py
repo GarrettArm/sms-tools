@@ -1,10 +1,12 @@
 # function to call the main analysis/synthesis functions in software/models/sprModel.py
 
-import numpy as np
-import matplotlib.pyplot as plt
 import os
 import sys
+
+import numpy as np
+import matplotlib.pyplot as plt
 from scipy.signal import get_window
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF
 import sprModel as SPR
@@ -32,7 +34,7 @@ def main(inputFile='../../sounds/bendir.wav', window='hamming', M=2001, N=2048, 
     H = 128
 
     # read input sound
-    (fs, x) = UF.wavread(inputFile)
+    fs, x = UF.wavread(inputFile)
 
     # compute analysis window
     w = get_window(window, M)

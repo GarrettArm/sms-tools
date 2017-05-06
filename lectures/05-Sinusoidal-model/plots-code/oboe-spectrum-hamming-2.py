@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import utilFunctions as UF
 import dftModel as DF
 
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 w = np.hamming(801)
 N = 2048
 pin = 5000

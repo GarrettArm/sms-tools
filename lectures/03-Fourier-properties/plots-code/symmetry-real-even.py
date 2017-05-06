@@ -1,6 +1,7 @@
+import math
+
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 from scipy.signal import triang
 from scipy.fftpack import fft, fftshift
 

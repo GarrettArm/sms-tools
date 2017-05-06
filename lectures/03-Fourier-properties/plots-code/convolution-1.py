@@ -1,15 +1,17 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import os
 import sys
+
+import matplotlib.pyplot as plt
+import numpy as np
 from scipy.fftpack import fft
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import utilFunctions as UF
 import dftModel as DF
-(fs, x) = UF.wavread('../../../sounds/ocean.wav')
-(fs, x2) = UF.wavread('../../../sounds/impulse-response.wav')
+
+
+fs, x = UF.wavread('../../../sounds/ocean.wav')
+fs, x2 = UF.wavread('../../../sounds/impulse-response.wav')
 x1 = x[40000:44096]
 N = 4096
 

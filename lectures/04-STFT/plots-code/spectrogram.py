@@ -1,16 +1,15 @@
-import numpy as np
 import os
 import sys
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import stft as STFT
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/piano.wav')
+fs, x = UF.wavread('../../../sounds/piano.wav')
 w = np.hamming(1001)
 N = 1024
 H = 256

@@ -10,7 +10,7 @@ import dftModel as DFT
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/carnatic.wav')
+fs, x = UF.wavread('../../../sounds/carnatic.wav')
 pin = 1.4 * fs
 w = np.blackman(1601)
 N = 4096

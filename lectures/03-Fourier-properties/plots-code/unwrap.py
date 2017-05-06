@@ -1,12 +1,14 @@
+import sys
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft, fftshift
-import sys
 
 sys.path.append('../../../software/models/')
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/soprano-E4.wav')
+
+fs, x = UF.wavread('../../../sounds/soprano-E4.wav')
 N = 1024
 x1 = np.blackman(N) * x[40000:40000 + N]
 

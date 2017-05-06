@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import dftModel as DF
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 N = 128
 start = .81 * fs
 x1 = x[start:start + N]
