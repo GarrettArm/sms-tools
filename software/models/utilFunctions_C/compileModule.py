@@ -7,18 +7,18 @@ import os
 import os.path
 
 try:
-   from distutils.command.build_py import build_py_2to3 \
-       as build_py
+    from distutils.command.build_py import build_py_2to3 \
+        as build_py
 except ImportError:
-   from distutils.command.build_py import build_py
-   
+    from distutils.command.build_py import build_py
+
 try:
-   from Cython.Distutils import build_ext
+    from Cython.Distutils import build_ext
 except ImportError:
-   use_cython = False
+    use_cython = False
 else:
-   use_cython = True
-   
+    use_cython = True
+
 
 py_inc = [get_python_inc()]
 
@@ -29,6 +29,6 @@ ext_inc = os
 sourcefiles = ["utilFunctions.c", "cutilFunctions.pyx"]
 
 setup(
-    cmdclass = {'build_ext': build_ext},
-    ext_modules = [Extension("utilFunctions_C",sourcefiles, libraries=['m'], include_dirs=py_inc + np_inc)]
-  )
+    cmdclass={'build_ext': build_ext},
+    ext_modules=[Extension("utilFunctions_C", sourcefiles, libraries=['m'], include_dirs=py_inc + np_inc)]
+)
