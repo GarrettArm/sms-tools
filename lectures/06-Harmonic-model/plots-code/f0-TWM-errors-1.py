@@ -1,61 +1,60 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackman
-import math
 import sys
 import os
-import functools
-import time
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import blackman
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DFT
 import utilFunctions as UF
 
 
 def TWM(pfreq, pmag, maxnpeaks, f0c):
-  # Two-way mismatch algorithm for f0 detection (by Beauchamp&Maher)
-  # pfreq, pmag: peak frequencies in Hz and magnitudes, maxnpeaks: maximum number of peaks used
-  # f0cand: frequencies of f0 candidates
-  # returns f0: fundamental frequency detected
+    # Two-way mismatch algorithm for f0 detection (by Beauchamp&Maher)
+    # pfreq, pmag: peak frequencies in Hz and magnitudes, maxnpeaks: maximum number of peaks used
+    # f0cand: frequencies of f0 candidates
+    # returns f0: fundamental frequency detected
 
-  p = 0.5                                          # weighting by frequency value
-  q = 1.4                                          # weighting related to magnitude of peaks
-  r = 0.5                                          # scaling related to magnitude of peaks
-  rho = 0.33                                       # weighting of MP error
-  Amax = max(pmag)                                 # maximum peak magnitude
+    p = 0.5                                                                                    # weighting by frequency value
+    q = 1.4                                                                                    # weighting related to magnitude of peaks
+    r = 0.5                                                                                    # scaling related to magnitude of peaks
+    rho = 0.33                                                                             # weighting of MP error
+    Amax = max(pmag)                                                                 # maximum peak magnitude
 
-  harmonic = np.matrix(f0c)
-  ErrorPM = np.zeros(harmonic.size)                 # initialize PM errors
-  MaxNPM = min(maxnpeaks, pfreq.size)
-  for i in range(0, MaxNPM):                       # predicted to measured mismatch error
-    difmatrixPM = harmonic.T * np.ones(pfreq.size)
-    difmatrixPM = abs(difmatrixPM - np.ones((harmonic.size, 1)) * pfreq)
-    FreqDistance = np.amin(difmatrixPM, axis=1)     # minimum along rows
-    peakloc = np.argmin(difmatrixPM, axis=1)
-    Ponddif = np.array(FreqDistance) * (np.array(harmonic.T)**(-p))
-    PeakMag = pmag[peakloc]
-    MagFactor = 10**((PeakMag - Amax) / 20)
-    ErrorPM = ErrorPM + (Ponddif + MagFactor * (q * Ponddif - r)).T
-    harmonic = harmonic + f0c
+    harmonic = np.matrix(f0c)
+    ErrorPM = np.zeros(harmonic.size)                                 # initialize PM errors
+    MaxNPM = min(maxnpeaks, pfreq.size)
+    for i in range(0, MaxNPM):                                             # predicted to measured mismatch error
+        difmatrixPM = harmonic.T * np.ones(pfreq.size)
+        difmatrixPM = abs(difmatrixPM - np.ones((harmonic.size, 1)) * pfreq)
+        FreqDistance = np.amin(difmatrixPM, axis=1)         # minimum along rows
+        peakloc = np.argmin(difmatrixPM, axis=1)
+        Ponddif = np.array(FreqDistance) * (np.array(harmonic.T)**(-p))
+        PeakMag = pmag[peakloc]
+        MagFactor = 10**((PeakMag - Amax) / 20)
+        ErrorPM = ErrorPM + (Ponddif + MagFactor * (q * Ponddif - r)).T
+        harmonic = harmonic + f0c
 
-  ErrorMP = np.zeros(harmonic.size)                # initialize MP errors
-  MaxNMP = min(10, pfreq.size)
-  for i in range(0, f0c.size):                    # measured to predicted mismatch error
-    nharm = np.round(pfreq[:MaxNMP] / f0c[i])
-    nharm = (nharm >= 1) * nharm + (nharm < 1)
-    FreqDistance = abs(pfreq[:MaxNMP] - nharm * f0c[i])
-    Ponddif = FreqDistance * (pfreq[:MaxNMP]**(-p))
-    PeakMag = pmag[:MaxNMP]
-    MagFactor = 10**((PeakMag - Amax) / 20)
-    ErrorMP[i] = sum(MagFactor * (Ponddif + MagFactor * (q * Ponddif - r)))
+    ErrorMP = np.zeros(harmonic.size)                                # initialize MP errors
+    MaxNMP = min(10, pfreq.size)
+    for i in range(0, f0c.size):                                        # measured to predicted mismatch error
+        nharm = np.round(pfreq[:MaxNMP] / f0c[i])
+        nharm = (nharm >= 1) * nharm + (nharm < 1)
+        FreqDistance = abs(pfreq[:MaxNMP] - nharm * f0c[i])
+        Ponddif = FreqDistance * (pfreq[:MaxNMP]**(-p))
+        PeakMag = pmag[:MaxNMP]
+        MagFactor = 10**((PeakMag - Amax) / 20)
+        ErrorMP[i] = sum(MagFactor * (Ponddif + MagFactor * (q * Ponddif - r)))
 
-  Error = (ErrorPM[0] / MaxNPM) + (rho * ErrorMP / MaxNMP)  # total error
-  f0index = np.argmin(Error)                       # get the smallest error
-  f0 = f0c[f0index]                                # f0 with the smallest error
+    Error = (ErrorPM[0] / MaxNPM) + (rho * ErrorMP / MaxNMP)    # total error
+    f0index = np.argmin(Error)                                             # get the smallest error
+    f0 = f0c[f0index]                                                                # f0 with the smallest error
 
-  return f0, ErrorPM, ErrorMP, Error
+    return f0, ErrorPM, ErrorMP, Error
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 N = 1024
 hN = N / 2
 M = 801

@@ -1,7 +1,6 @@
 # transformations applied to the harmonics of a sound
 
 import numpy as np
-from scipy.signal import resample
 from scipy.interpolate import interp1d
 
 

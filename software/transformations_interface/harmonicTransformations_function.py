@@ -1,4 +1,3 @@
-block = False  # function call to the transformation functions of relevance for the hpsModel
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,6 +11,8 @@ import harmonicModel as HM
 import sineTransformations as ST
 import harmonicTransformations as HT
 import utilFunctions as UF
+
+block = False  # function call to the transformation functions of relevance for the hpsModel
 
 
 def analysis(inputFile='../../sounds/vignesh.wav', window='blackman', M=1201, N=2048, t=-90,

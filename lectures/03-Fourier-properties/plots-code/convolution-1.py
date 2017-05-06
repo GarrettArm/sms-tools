@@ -1,10 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import time
 import os
 import sys
-from scipy.fftpack import fft, ifft, fftshift
-import math
+from scipy.fftpack import fft
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 

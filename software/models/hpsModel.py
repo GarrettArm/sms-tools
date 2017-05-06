@@ -3,7 +3,7 @@
 
 import numpy as np
 from scipy.signal import resample, blackmanharris, triang, hanning
-from scipy.fftpack import fft, ifft, fftshift
+from scipy.fftpack import fft, ifft
 import math
 import harmonicModel as HM
 import sineModel as SM

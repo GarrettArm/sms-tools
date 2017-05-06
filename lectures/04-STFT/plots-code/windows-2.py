@@ -1,14 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import time
 import os
 import sys
+import math
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 
 import dftModel as DF
 import utilFunctions as UF
-import math
+
 
 (fs, x) = UF.wavread('../../../sounds/violin-B3.wav')
 N = 1024

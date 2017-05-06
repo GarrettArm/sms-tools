@@ -1,12 +1,10 @@
 import numpy as np
 from scipy.signal import resample, blackmanharris, triang
 from scipy.fftpack import fft, ifft, fftshift
-import math
 import copy
 import sys
 import os
 from scipy.io.wavfile import write, read
-from sys import platform
 import subprocess
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), './utilFunctions_C/'))
 try:

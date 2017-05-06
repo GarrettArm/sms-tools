@@ -1,7 +1,6 @@
 import os
 import re
 import json
-from collections import namedtuple
 
 try:  # python 3
     from urllib.request import urlopen, FancyUrlOpener, Request

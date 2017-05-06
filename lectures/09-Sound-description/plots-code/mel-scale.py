@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.signal import get_window
+
 
 f = 10000.0 * np.arange(0, 100) / 100.0
 m = 2595 * np.log10(1 + f / 700.0)

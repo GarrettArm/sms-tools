@@ -4,7 +4,7 @@
 import numpy as np
 import math
 from scipy.signal import blackmanharris, triang
-from scipy.fftpack import fft, ifft, fftshift
+from scipy.fftpack import fft, ifft
 import harmonicModel as HM
 import dftModel as DFT
 import utilFunctions as UF

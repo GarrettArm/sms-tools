@@ -1,10 +1,8 @@
-import sys
-import csv
-import os
 from essentia import *
 from essentia.standard import *
 from pylab import *
 from numpy import *
+
 
 filename = '../../../sounds/orchestra.wav'
 fs = 44100

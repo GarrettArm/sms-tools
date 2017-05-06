@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.io.wavfile import read
-from scipy.fftpack import fft, ifft
+from scipy.fftpack import fft
 
 a = 0.5
 b = 1.0

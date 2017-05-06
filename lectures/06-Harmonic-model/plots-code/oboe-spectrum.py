@@ -1,17 +1,16 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris
 import math
 import sys
 import os
-import functools
-import time
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DFT
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/oboe-A4.wav')
+
+fs, x = UF.wavread('../../../sounds/oboe-A4.wav')
 w = np.blackman(651)
 N = 1024
 pin = 5000

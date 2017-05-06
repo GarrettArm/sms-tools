@@ -1,9 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
-import os
-import sys
-from numpy import random
 from scipy.stats import mode
 
 

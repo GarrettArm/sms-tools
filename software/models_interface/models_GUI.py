@@ -1,7 +1,4 @@
 import sys
-if sys.platform == 'darwin':
-    import matplotlib
-    matplotlib.use('TkAgg')
 
 from Tkinter import *
 from notebook import *   # window with tabs
@@ -15,6 +12,10 @@ from sprModel_GUI_frame import *
 from spsModel_GUI_frame import *
 from hprModel_GUI_frame import *
 from hpsModel_GUI_frame import *
+
+if sys.platform == 'darwin':
+    import matplotlib
+    matplotlib.use('TkAgg')
 
 root = Tk()
 root.title('sms-tools models GUI')

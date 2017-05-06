@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.fftpack import fft
 
 M = 10
 N = 100

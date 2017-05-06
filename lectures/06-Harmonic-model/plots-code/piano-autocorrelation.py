@@ -1,15 +1,15 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import math
-import time
 import os
 import sys
+
+import matplotlib.pyplot as plt
+import numpy as np
 import essentia.standard as ess
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import utilFunctions as UF
-(fs, x) = UF.wavread('../../../sounds/piano.wav')
+
+
+fs, x = UF.wavread('../../../sounds/piano.wav')
 start = 13860
 M = 800
 xp = x[start:start + M] / float(max(x[start:start + M]))

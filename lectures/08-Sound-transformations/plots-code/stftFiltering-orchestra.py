@@ -1,15 +1,17 @@
-import numpy as np
-import time
 import os
 import sys
+
+import numpy as np
 import matplotlib.pyplot as plt
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/transformations/'))
 import utilFunctions as UF
 import stftTransformations as STFTT
 import stft as STFT
 
-(fs, x) = UF.wavread('../../../sounds/orchestra.wav')
+
+fs, x = UF.wavread('../../../sounds/orchestra.wav')
 w = np.hamming(2048)
 N = 2048
 H = 512

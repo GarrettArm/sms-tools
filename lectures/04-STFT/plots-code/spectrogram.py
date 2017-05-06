@@ -1,16 +1,14 @@
 import numpy as np
-import time
 import os
 import sys
+
+import matplotlib.pyplot as plt
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 
 import stft as STFT
 import utilFunctions as UF
-import matplotlib.pyplot as plt
-from scipy.signal import hamming
-from scipy.fftpack import fft
-import math
+
 
 (fs, x) = UF.wavread('../../../sounds/piano.wav')
 w = np.hamming(1001)

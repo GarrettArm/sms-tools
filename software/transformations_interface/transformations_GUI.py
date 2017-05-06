@@ -1,7 +1,4 @@
 import sys
-if sys.platform == 'darwin':
-    import matplotlib
-    matplotlib.use('TkAgg')
 
 from Tkinter import *
 from notebook import *   # window with tabs
@@ -12,6 +9,10 @@ from harmonicTransformations_GUI_frame import *
 from stochasticTransformations_GUI_frame import *
 from hpsTransformations_GUI_frame import *
 from hpsMorph_GUI_frame import *
+
+if sys.platform == 'darwin':
+    import matplotlib
+    matplotlib.use('TkAgg')
 
 root = Tk()
 root.title('sms-tools transformations GUI')

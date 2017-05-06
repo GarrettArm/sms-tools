@@ -5,7 +5,6 @@ import tkFileDialog
 import tkMessageBox
 import sys
 import os
-from scipy.io.wavfile import read
 import hpsModel_function
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 import utilFunctions as UF

@@ -1,13 +1,11 @@
-import numpy as np
-import time
 import os
 import sys
-from scipy.signal import hamming, resample
+
+import numpy as np
 import matplotlib.pyplot as plt
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/transformations/'))
-
 import dftModel as DFT
 import utilFunctions as UF
 import stftTransformations as STFTT
@@ -15,8 +13,9 @@ import stochasticModel as STOC
 import math
 import stft as STFT
 
-(fs, x1) = UF.wavread('../../../sounds/orchestra.wav')
-(fs, x2) = UF.wavread('../../../sounds/speech-male.wav')
+
+fs, x1 = UF.wavread('../../../sounds/orchestra.wav')
+fs, x2 = UF.wavread('../../../sounds/speech-male.wav')
 w1 = np.hamming(1024)
 N1 = 1024
 H1 = 256

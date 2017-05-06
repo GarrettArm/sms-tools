@@ -1,15 +1,15 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris
 import sys
 import os
-import functools
-import time
+
+import numpy as np
+import matplotlib.pyplot as plt
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DFT
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/sine-440-490.wav')
+
+fs, x = UF.wavread('../../../sounds/sine-440-490.wav')
 w = np.hamming(3529)
 N = 32768
 hN = N / 2

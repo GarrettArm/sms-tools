@@ -1,14 +1,14 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris
 import sys
 import os
-import functools
-import time
+
+import numpy as np
+import matplotlib.pyplot as plt
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import sineModel as SM
 import stft as STFT
 import utilFunctions as UF
+
 
 plt.figure(1, figsize=(9, 7))
 

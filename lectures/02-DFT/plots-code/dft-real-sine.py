@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 tol = 1e-5
 
 plt.figure(1, figsize=(9.5, 7))

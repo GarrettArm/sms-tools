@@ -1,16 +1,18 @@
 # function for doing a morph between two sounds using the hpsModel
+import sys
+import os
 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import get_window
-import sys
-import os
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../transformations/'))
 import hpsModel as HPS
 import hpsTransformations as HPST
 import harmonicTransformations as HT
 import utilFunctions as UF
+
 
 inputFile1 = '../../../sounds/violin-B3.wav'
 window1 = 'blackman'

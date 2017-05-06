@@ -1,20 +1,19 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, hanning, triang, blackmanharris, resample
-from scipy.fftpack import fft, ifft, fftshift
 import sys
 import os
-import functools
-import time
-import math
+
+import numpy as np
+import matplotlib.pyplot as plt
+
 from scipy.interpolate import interp1d
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import sineModel as SM
 import stft as STFT
 import sineModel as SM
 import utilFunctions as UF
 
-(fs, x) = UF.wavread('../../../sounds/mridangam.wav')
+
+fs, x = UF.wavread('../../../sounds/mridangam.wav')
 x1 = x[:int(1.49 * fs)]
 w = np.hamming(801)
 N = 2048

@@ -1,18 +1,16 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, hanning, resample
-from scipy.fftpack import fft, ifft
-import time
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
+import numpy as np
+import matplotlib.pyplot as plt
 
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import utilFunctions as UF
 import stochasticModel as STM
 import stft as STFT
 
-(fs, x) = UF.wavread('../../../sounds/ocean.wav')
+
+fs, x = UF.wavread('../../../sounds/ocean.wav')
 w = np.hamming(512)
 N = 512
 H = 256

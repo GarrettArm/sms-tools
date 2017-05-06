@@ -1,15 +1,12 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris
-from scipy.fftpack import fft, ifft, fftshift
-import math
 import sys
 import os
-import functools
-import time
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import blackmanharris
+from scipy.fftpack import ifft, fftshift
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
-
 import stft as STFT
 import sineModel as SM
 import utilFunctions as UF

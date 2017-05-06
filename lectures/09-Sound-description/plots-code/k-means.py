@@ -1,11 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
-import os
-import sys
-from scipy.cluster.vq import vq, kmeans, whiten
-from numpy import random
-import pickle
+from scipy.cluster.vq import kmeans
+
 
 n = 30
 features = np.hstack((np.array([np.random.normal(-2, 1.1, n), np.random.normal(-2, 1.1, n)]),

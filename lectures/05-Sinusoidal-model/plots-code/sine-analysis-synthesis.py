@@ -1,12 +1,13 @@
+import os
+import sys
+
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris
-import sys
-import os
-import functools
-import time
-from scipy.fftpack import fft, ifft, fftshift
+from scipy.signal import blackmanharris
+from scipy.fftpack import ifft, fftshift
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
+
 import dftModel as DFT
 import utilFunctions as UF
 

@@ -1,21 +1,18 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, hanning, triang, blackmanharris, resample
-import math
 import sys
 import os
-import functools
-import time
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/transformations/'))
-
 import sineModel as SM
 import stft as STFT
 import utilFunctions as UF
 import sineTransformations as SMT
 
-(fs, x) = UF.wavread('../../../sounds/orchestra.wav')
+
+fs, x = UF.wavread('../../../sounds/orchestra.wav')
 w = np.hamming(801)
 N = 2048
 t = -90

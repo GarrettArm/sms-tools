@@ -1,11 +1,10 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, hanning, triang, blackmanharris, resample
-import math
 import sys
 import os
-import time
-from scipy.fftpack import fft, ifft
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import hamming
+from scipy.fftpack import fft
 import essentia.standard as ess
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
@@ -14,7 +13,7 @@ import utilFunctions as UF
 
 lpc = ess.LPC(order=14)
 N = 512
-(fs, x) = UF.wavread('../../../sounds/soprano-E4.wav')
+fs, x = UF.wavread('../../../sounds/soprano-E4.wav')
 first = 20000
 last = first + N
 x1 = x[first:last]

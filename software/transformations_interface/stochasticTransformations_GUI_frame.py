@@ -5,7 +5,6 @@ import tkFileDialog
 import tkMessageBox
 import sys
 import os
-from scipy.io.wavfile import read
 import numpy as np
 import stochasticTransformations_function as sT
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))

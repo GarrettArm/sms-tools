@@ -1,19 +1,19 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import hamming, triang, blackmanharris, resample
-import math
-from scipy.fftpack import fft, ifft, fftshift
 import sys
 import os
-import functools
-import time
+import math
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import blackmanharris, resample
+from scipy.fftpack import fft, fftshift
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DFT
 import utilFunctions as UF
 import harmonicModel as HM
 
-(fs, x) = UF.wavread('../../../sounds/flute-A4.wav')
+
+fs, x = UF.wavread('../../../sounds/flute-A4.wav')
 pos = .8 * fs
 M = 601
 hM1 = int(math.floor((M + 1) / 2))

@@ -1,12 +1,14 @@
 import sys
-import csv
 import os
+
 from essentia import *
 from essentia.standard import *
 from pylab import *
 from numpy import *
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import stft as STFT
+
 
 filename = '../../../sounds/carnatic.wav'
 hopSize = 128
@@ -17,11 +19,11 @@ guessUnvoiced = True
 run_windowing = Windowing(type='hann', zeroPadding=3 * frameSize)    # Hann window with x4 zero padding
 run_spectrum = Spectrum(size=frameSize * 4)
 run_spectral_peaks = SpectralPeaks(minFrequency=50,
-                                                                     maxFrequency=10000,
-                                                                     maxPeaks=100,
-                                                                     sampleRate=sampleRate,
-                                                                     magnitudeThreshold=0,
-                                                                     orderBy="magnitude")
+                                   maxFrequency=10000,
+                                   maxPeaks=100,
+                                   sampleRate=sampleRate,
+                                   magnitudeThreshold=0,
+                                   orderBy="magnitude")
 run_pitch_salience_function = PitchSalienceFunction(magnitudeThreshold=60)
 run_pitch_salience_function_peaks = PitchSalienceFunctionPeaks(minFrequency=90, maxFrequency=800)
 run_pitch_contours = PitchContours(hopSize=hopSize, peakFrameThreshold=0.7)

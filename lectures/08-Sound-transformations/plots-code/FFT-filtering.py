@@ -1,17 +1,15 @@
-import math
-import matplotlib.pyplot as plt
-import numpy as np
-import time
 import os
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
+import matplotlib.pyplot as plt
+import numpy as np
 
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../../software/models/'))
 import dftModel as DFT
 import utilFunctions as UF
 
 
-(fs, x) = UF.wavread('../../../sounds/orchestra.wav')
+fs, x = UF.wavread('../../../sounds/orchestra.wav')
 N = 2048
 start = 1.0 * fs
 x1 = x[start:start + N]
