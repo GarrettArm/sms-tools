@@ -65,7 +65,7 @@ def main(inputFile='../../sounds/bendir.wav', window='hamming', M=2001, N=2048, 
 
     # plot the sinusoidal frequencies
     plt.subplot(3, 1, 2)
-    if (tfreq.shape[1] > 0):
+    if tfreq.shape[1] > 0:
         numFrames = tfreq.shape[0]
         frmTime = H * np.arange(numFrames) / float(fs)
         tfreq[tfreq <= 0] = np.nan

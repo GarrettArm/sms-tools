@@ -21,13 +21,13 @@ def f0Detection(x, fs, w, N, H, t, minf0, maxf0, f0et):
     f0et: error threshold in the f0 detection (ex: 5),
     returns f0: fundamental frequency
     """
-    if (minf0 < 0):                                            # raise exception if minf0 is smaller than 0
+    if minf0 < 0:                                            # raise exception if minf0 is smaller than 0
         raise ValueError("Minumum fundamental frequency (minf0) smaller than 0")
 
-    if (maxf0 >= 10000):                                       # raise exception if maxf0 is bigger than fs/2
+    if maxf0 >= 10000:                                       # raise exception if maxf0 is bigger than fs/2
         raise ValueError("Maximum fundamental frequency (maxf0) bigger than 10000Hz")
 
-    if (H <= 0):                                               # raise error if hop size 0 or negative
+    if H <= 0:                                               # raise error if hop size 0 or negative
         raise ValueError("Hop size (H) smaller or equal to 0")
 
     hN = N / 2                                                   # size of positive spectrum
@@ -71,21 +71,21 @@ def harmonicDetection(pfreq, pmag, pphase, f0, nH, hfreqp, fs, harmDevSlope=0.01
     returns hfreq, hmag, hphase: harmonic frequencies, magnitudes, phases
     """
 
-    if (f0 <= 0):                                          # if no f0 return no harmonics
+    if f0 <= 0:                                          # if no f0 return no harmonics
         return np.zeros(nH), np.zeros(nH), np.zeros(nH)
     hfreq = np.zeros(nH)                                 # initialize harmonic frequencies
     hmag = np.zeros(nH) - 100                              # initialize harmonic magnitudes
     hphase = np.zeros(nH)                                # initialize harmonic phases
     hf = f0 * np.arange(1, nH + 1)                           # initialize harmonic frequencies
     hi = 0                                               # initialize harmonic index
-    if hfreqp == []:                                     # if no incomming harmonic tracks initialize to harmonic series
+    if not hfreqp:                                     # if no incomming harmonic tracks initialize to harmonic series
         hfreqp = hf
     while (f0 > 0) and (hi < nH) and (hf[hi] < fs / 2):          # find harmonic peaks
         pei = np.argmin(abs(pfreq - hf[hi]))               # closest peak
         dev1 = abs(pfreq[pei] - hf[hi])                    # deviation from perfect harmonic
         dev2 = (abs(pfreq[pei] - hfreqp[hi]) if hfreqp[hi] > 0 else fs)  # deviation from previous frame
         threshold = f0 / 3 + harmDevSlope * pfreq[pei]
-        if ((dev1 < threshold) or (dev2 < threshold)):         # accept peak if deviation is small
+        if (dev1 < threshold) or (dev2 < threshold):         # accept peak if deviation is small
             hfreq[hi] = pfreq[pei]                           # harmonic frequencies
             hmag[hi] = pmag[pei]                             # harmonic magnitudes
             hphase[hi] = pphase[pei]                         # harmonic phases
@@ -164,7 +164,7 @@ def harmonicModelAnal(x, fs, w, N, H, t, nH, minf0, maxf0, f0et, harmDevSlope=0.
     returns xhfreq, xhmag, xhphase: harmonic frequencies, magnitudes and phases
     """
 
-    if (minSineDur < 0):                                     # raise exception if minSineDur is smaller than 0
+    if minSineDur < 0:                                     # raise exception if minSineDur is smaller than 0
         raise ValueError("Minimum duration of sine tracks smaller than 0")
 
     hN = N / 2                                                # size of positive spectrum

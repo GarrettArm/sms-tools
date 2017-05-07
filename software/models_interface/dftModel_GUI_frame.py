@@ -15,8 +15,8 @@ import utilFunctions as UF
 class DftModel_frame:
 
     def __init__(self, parent):
-
         self.parent = parent
+        self.filelocation = None
         self.initUI()
 
     def initUI(self):

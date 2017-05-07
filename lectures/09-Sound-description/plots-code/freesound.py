@@ -12,7 +12,10 @@ except ImportError:  # python 2.7
     from urllib2 import HTTPError, urlopen, Request
 
 
-class URIS():
+class URIS:
+    def __init__(self):
+        pass
+
     HOST = 'www.freesound.org'
     BASE = 'https://' + HOST + '/apiv2'
     TEXT_SEARCH = '/search/text/'
@@ -49,7 +52,10 @@ class URIS():
         return cls.BASE + uri
 
 
-class FreesoundClient():
+class FreesoundClient:
+
+    def __init__(self):
+        pass
 
     client_secret = ""
     client_id = ""
@@ -124,8 +130,13 @@ class Retriever(FancyURLopener):
 
 
 class FSRequest:
+    def __init__(self):
+        pass
+
     @classmethod
-    def request(cls, uri, params={}, client=None, wrapper=FreesoundObject, method='GET', data=False):
+    def request(cls, uri, params=None, client=None, wrapper=FreesoundObject, method='GET', data=False):
+        if params is None:
+            params = {}
         p = params if params else {}
         url = '%s?%s' % (uri, urlencode(p)) if params else uri
         d = urllib.urlencode(data) if data else None
@@ -135,7 +146,7 @@ class FSRequest:
             f = urlopen(req)
         except HTTPError, e:
             resp = e.read()
-            if e.code >= 200 and e.code < 300:
+            if 200 <= e.code < 300:
                 return resp
             else:
                 raise FreesoundException(e.code, json.loads(resp))
@@ -226,7 +237,7 @@ class User(FreesoundObject):
         return FSRequest.request(uri, {}, self.client, Pager)
 
     def __repr__(self):
-        return '<User: "%s">' % (self.username)
+        return '<User: "%s">' % self.username
 
 
 class Pack(FreesoundObject):

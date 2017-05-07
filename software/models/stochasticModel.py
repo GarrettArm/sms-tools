@@ -18,16 +18,16 @@ def stochasticModelAnal(x, H, N, stocf):
 
     hN = N / 2 + 1                                             # positive size of fft
     No2 = N / 2                                              # half of N
-    if (hN * stocf < 3):                                     # raise exception if decimation factor too small
+    if hN * stocf < 3:                                     # raise exception if decimation factor too small
         raise ValueError("Stochastic decimation factor too small")
 
-    if (stocf > 1):                                        # raise exception if decimation factor too big
+    if stocf > 1:                                        # raise exception if decimation factor too big
         raise ValueError("Stochastic decimation factor above 1")
 
-    if (H <= 0):                                           # raise error if hop size 0 or negative
+    if H <= 0:                                           # raise error if hop size 0 or negative
         raise ValueError("Hop size (H) smaller or equal to 0")
 
-    if not(UF.isPower2(N)):                                # raise error if N not a power of two
+    if not UF.isPower2(N):                                # raise error if N not a power of two
         raise ValueError("FFT size (N) is not a power of 2")
 
     w = hanning(N)                                          # analysis window
@@ -88,16 +88,16 @@ def stochasticModel(x, H, N, stocf):
     """
     hN = N / 2 + 1                                            		# positive size of fft
     No2 = N / 2							# half of N
-    if (hN * stocf < 3):                                              # raise exception if decimation factor too small
+    if hN * stocf < 3:                                              # raise exception if decimation factor too small
         raise ValueError("Stochastic decimation factor too small")
 
-    if (stocf > 1):                                          # raise exception if decimation factor too big
+    if stocf > 1:                                          # raise exception if decimation factor too big
         raise ValueError("Stochastic decimation factor above 1")
 
-    if (H <= 0):                                             # raise error if hop size 0 or negative
+    if H <= 0:                                             # raise error if hop size 0 or negative
         raise ValueError("Hop size (H) smaller or equal to 0")
 
-    if not(UF.isPower2(N)):                                  # raise error if N not a power of twou
+    if not UF.isPower2(N):                                  # raise error if N not a power of twou
         raise ValueError("FFT size (N) is not a power of 2")
 
     w = hanning(N)                                           # analysis/synthesis window

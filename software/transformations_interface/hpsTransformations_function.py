@@ -81,7 +81,7 @@ def analysis(inputFile='../../sounds/sax-phrase-short.wav', window='blackman', M
     plt.autoscale(tight=True)
 
     # plot harmonic on top of stochastic spectrogram
-    if (hfreq.shape[1] > 0):
+    if hfreq.shape[1] > 0:
         harms = hfreq * np.less(hfreq, maxplotfreq)
         harms[harms == 0] = np.nan
         numFrames = int(harms[:, 0].size)
@@ -156,7 +156,7 @@ def transformation_synthesis(inputFile, fs, hfreq, hmag, mYst, freqScaling=np.ar
     plt.autoscale(tight=True)
 
     # plot transformed harmonic on top of stochastic spectrogram
-    if (yhfreq.shape[1] > 0):
+    if yhfreq.shape[1] > 0:
         harms = yhfreq * np.less(yhfreq, maxplotfreq)
         harms[harms == 0] = np.nan
         numFrames = int(harms[:, 0].size)

@@ -15,7 +15,7 @@ def stochasticModelFrame(x, w, N, stocf):
     # x: input array sound, w: analysis window, N: FFT size,
     # stocf: decimation factor of mag spectrum for stochastic analysis
     hN = N / 2 + 1                                               # size of positive spectrum
-    hM = (w.size) / 2                                          # half analysis window size
+    hM = w.size / 2                                          # half analysis window size
     pin = hM                                                 # initialize sound pointer in middle of analysis window
     fftbuffer = np.zeros(N)                                  # initialize buffer for FFT
     yw = np.zeros(w.size)                                    # initialize output sound frame

@@ -11,7 +11,7 @@ def stochasticTimeScale(stocEnv, timeScaling):
     timeScaling: scaling factors, in time-value pairs
     returns ystocEnv: stochastic envelope
     """
-    if (timeScaling.size % 2 != 0):                             # raise exception if array not even length
+    if timeScaling.size % 2 != 0:                             # raise exception if array not even length
         raise ValueError("Time scaling array does not have an even size")
 
     L = stocEnv[:, 0].size                                       # number of input frames

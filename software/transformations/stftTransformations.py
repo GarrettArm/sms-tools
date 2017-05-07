@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../mo
 import dftModel as DFT
 
 
-def stftFiltering(x, fs, w, N, H, filter):
+def stftFiltering(x, fs, w, N, H, filt):
     """
     Apply a filter to a sound by using the STFT
     x: input sound, w: analysis window, N: FFT size, H: hop size
@@ -33,7 +33,7 @@ def stftFiltering(x, fs, w, N, H, filter):
         x1 = x[pin - hM1:pin + hM2]                    # select one frame of input sound
         mX, pX = DFT.dftAnal(x1, w, N)             # compute dft
         # ------transformation-----
-        mY = mX + filter                           # filter input magnitude spectrum
+        mY = mX + filt                           # filter input magnitude spectrum
         # -----synthesis-----
         y1 = DFT.dftSynth(mY, pX, M)               # compute idft
         y[pin - hM1:pin + hM2] += H * y1                 # overlap-add to generate output sound
@@ -53,16 +53,16 @@ def stftMorph(x1, x2, fs, w1, N1, w2, N2, H1, smoothf, balancef):
     returns y: output sound
     """
 
-    if (N2 / 2 * smoothf < 3):                           # raise exception if decimation factor too small
+    if N2 / 2 * smoothf < 3:                           # raise exception if decimation factor too small
         raise ValueError("Smooth factor too small")
 
-    if (smoothf > 1):                                # raise exception if decimation factor too big
+    if smoothf > 1:                                # raise exception if decimation factor too big
         raise ValueError("Smooth factor above 1")
 
-    if (balancef > 1 or balancef < 0):               # raise exception if balancef outside 0-1
+    if balancef > 1 or balancef < 0:               # raise exception if balancef outside 0-1
         raise ValueError("Balance factor outside range")
 
-    if (H1 <= 0):                                    # raise error if hop size 0 or negative
+    if H1 <= 0:                                    # raise error if hop size 0 or negative
         raise ValueError("Hop size (H1) smaller or equal to 0")
 
     M1 = w1.size                                     # size of analysis window

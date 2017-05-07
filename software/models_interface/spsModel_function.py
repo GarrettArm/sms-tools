@@ -77,7 +77,7 @@ def main(inputFile='../../sounds/bendir.wav', window='hamming', M=2001, N=2048, 
     plt.autoscale(tight=True)
 
     # plot sinusoidal frequencies on top of stochastic component
-    if (tfreq.shape[1] > 0):
+    if tfreq.shape[1] > 0:
         sines = tfreq * np.less(tfreq, maxplotfreq)
         sines[sines == 0] = np.nan
         numFrames = int(sines[:, 0].size)

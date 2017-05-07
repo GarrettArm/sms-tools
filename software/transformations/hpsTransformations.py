@@ -12,7 +12,7 @@ def hpsTimeScale(hfreq, hmag, stocEnv, timeScaling):
     returns yhfreq, yhmag, ystocEnv: hps output representation
     """
 
-    if (timeScaling.size % 2 != 0):                        # raise exception if array not even length
+    if timeScaling.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Time scaling array does not have an even size")
 
     L = hfreq[:, 0].size                                    # number of input frames
@@ -44,13 +44,13 @@ def hpsMorph(hfreq1, hmag1, stocEnv1, hfreq2, hmag2, stocEnv2, hfreqIntp, hmagIn
     returns yhfreq, yhmag, ystocEnv: hps output representation
     """
 
-    if (hfreqIntp.size % 2 != 0):                        # raise exception if array not even length
+    if hfreqIntp.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Harmonic frequencies interpolation array does not have an even size")
 
-    if (hmagIntp.size % 2 != 0):                        # raise exception if array not even length
+    if hmagIntp.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Harmonic magnitudes interpolation does not have an even size")
 
-    if (stocIntp.size % 2 != 0):                        # raise exception if array not even length
+    if stocIntp.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Stochastic component array does not have an even size")
 
     L1 = hfreq1[:, 0].size                                    # number of frames of sound 1

@@ -5,6 +5,8 @@ import os
 import json
 from scipy.cluster.vq import kmeans, whiten
 
+from euclidian import eucDist
+
 
 def fetchDataDetails(inputDir, descExt='.json'):
     dataDetails = {}
@@ -12,16 +14,15 @@ def fetchDataDetails(inputDir, descExt='.json'):
         for fname in fnames:
             if descExt in fname.lower():
                 rname, cname, sname = path.split('/')
-                if not dataDetails.has_key(cname):
+                if cname not in dataDetails:
                     dataDetails[cname] = {}
-                fDict = json.load(open(os.path.join(rname, cname, sname, fname), 'r'))
+                with open(os.path.join(path, fname), 'r') as f:
+                    fDict = json.load(f)
                 dataDetails[cname][sname] = {'file': fname, 'feature': fDict}
-
     return dataDetails
 
 
-def plotFeatures(inputDir, descInput=('', ''), anotOn=0):
-
+def plotFeatures(inputDir, descInput=('', ''), anotOn=0, figure_index=1, figure_kargs=None, scatter_s=200):
     # mfcc descriptors are an special case for us as its a vector not a value
     descriptors = ['', '']
     mfccInd = [-1, -1]
@@ -41,7 +42,7 @@ def plotFeatures(inputDir, descInput=('', ''), anotOn=0):
 
     dataDetails = fetchDataDetails(inputDir)
     colors = ['r', 'g', 'c', 'b', 'k', 'm', 'y']
-    plt.figure()
+    plt.figure(figure_index, **figure_kargs)
     plt.hold(True)
     legArray = []
     catArray = []
@@ -50,7 +51,7 @@ def plotFeatures(inputDir, descInput=('', ''), anotOn=0):
         for soundId in dataDetails[category].keys():
             filepath = os.path.join(inputDir, category, soundId, dataDetails[category][soundId]['file'])
             descSound = json.load(open(filepath, 'r'))
-            if not descSound.has_key(descriptors[0]) or not descSound.has_key(descriptors[1]):
+            if descriptors[0] not in descSound or descriptors[1] not in descSound:
                 print "Please provide descriptors which are extracted and saved before"
                 return -1
             if "mfcc" in descriptors[0]:
@@ -63,7 +64,7 @@ def plotFeatures(inputDir, descInput=('', ''), anotOn=0):
             else:
                 y_cord = descSound[descriptors[1]][0]
 
-            plt.scatter(x_cord, y_cord, c=colors[ii], s=200, hold=True, alpha=0.75)
+            plt.scatter(x_cord, y_cord, c=colors[ii], s=scatter_s, hold=True, alpha=0.75)
             if anotOn == 1:
                 plt.annotate(soundId, xy=(x_cord, y_cord), xytext=(x_cord, y_cord))
 
@@ -76,6 +77,7 @@ def plotFeatures(inputDir, descInput=('', ''), anotOn=0):
                loc=3, ncol=len(catArray), mode="expand", borderaxespad=0.)
 
     plt.show()
+    return plt
 
 
 def eucDistFeatures(ftrDict1, ftrDict2):
@@ -84,11 +86,6 @@ def eucDistFeatures(ftrDict1, ftrDict2):
     f2 = convFtrDict2List(ftrDict2)
 
     return eucDist(f1, f2)
-
-
-def eucDist(vec1, vec2):
-
-    return np.sqrt(np.sum(np.power(np.array(vec1) - np.array(vec2), 2)))
 
 
 def convFtrDict2List(ftrDict):

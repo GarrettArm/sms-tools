@@ -55,11 +55,11 @@ def sineTracking(pfreq, pmag, pphase, tfreq, freqDevOffset=20, freqDevSlope=0.01
     # create new tracks from non used peaks
     emptyt = np.array(np.nonzero(tfreq == 0), dtype=np.int)[0]      # indexes of empty incoming tracks
     peaksleft = np.argsort(-pmagt)                                  # sort left peaks by magnitude
-    if ((peaksleft.size > 0) & (emptyt.size >= peaksleft.size)):    # fill empty tracks
+    if (peaksleft.size > 0) & (emptyt.size >= peaksleft.size):    # fill empty tracks
         tfreqn[emptyt[:peaksleft.size]] = pfreqt[peaksleft]
         tmagn[emptyt[:peaksleft.size]] = pmagt[peaksleft]
         tphasen[emptyt[:peaksleft.size]] = pphaset[peaksleft]
-    elif ((peaksleft.size > 0) & (emptyt.size < peaksleft.size)):   # add more tracks if necessary
+    elif (peaksleft.size > 0) & (emptyt.size < peaksleft.size):   # add more tracks if necessary
         tfreqn[emptyt] = pfreqt[peaksleft[:emptyt.size]]
         tmagn[emptyt] = pmagt[peaksleft[:emptyt.size]]
         tphasen[emptyt] = pphaset[peaksleft[:emptyt.size]]
@@ -148,7 +148,7 @@ def sineModelAnal(x, fs, w, N, H, t, maxnSines=100, minSineDur=.01, freqDevOffse
     returns xtfreq, xtmag, xtphase: frequencies, magnitudes and phases of sinusoidal tracks
     """
 
-    if (minSineDur < 0):                          # raise error if minSineDur is smaller than 0
+    if minSineDur < 0:                          # raise error if minSineDur is smaller than 0
         raise ValueError("Minimum duration of sine tracks smaller than 0")
 
     hM1 = int(math.floor((w.size + 1) / 2))                     # half analysis window size by rounding
@@ -212,7 +212,7 @@ def sineModelSynth(tfreq, tmag, tphase, N, H, fs):
     lastytfreq = tfreq[0, :]                                 # initialize synthesis frequencies
     ytphase = 2 * np.pi * np.random.rand(tfreq[0, :].size)       # initialize synthesis phases
     for l in range(L):                                      # iterate over all frames
-        if (tphase.size > 0):                                 # if no phases generate them
+        if tphase.size > 0:                                 # if no phases generate them
             ytphase = tphase[l, :]
         else:
             ytphase += (np.pi * (lastytfreq + tfreq[l, :]) / fs) * H     # propagate phases

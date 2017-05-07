@@ -11,7 +11,7 @@ def sineTimeScaling(sfreq, smag, timeScaling):
     timeScaling: scaling factors, in time-value pairs
     returns ysfreq, ysmag: frequencies and magnitudes of output sinusoidal tracks
     """
-    if (timeScaling.size % 2 != 0):                        # raise exception if array not even length
+    if timeScaling.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Time scaling array does not have an even size")
 
     L = sfreq.shape[0]                                     # number of input frames
@@ -37,7 +37,7 @@ def sineFreqScaling(sfreq, freqScaling):
     freqScaling: scaling factors, in time-value pairs (value of 1 is no scaling)
     returns ysfreq: frequencies of output sinusoidal tracks
     """
-    if (freqScaling.size % 2 != 0):                        # raise exception if array not even length
+    if freqScaling.size % 2 != 0:                        # raise exception if array not even length
         raise ValueError("Frequency scaling array does not have an even size")
 
     L = sfreq.shape[0]                                     # number of input frames

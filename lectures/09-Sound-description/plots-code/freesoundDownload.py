@@ -6,12 +6,12 @@ import json
 Key = "????????????"
 
 descriptors = ['lowlevel.spectral_centroid.mean',
-                             'lowlevel.spectral_centroid.var',
-                             'lowlevel.mfcc.mean',
-                             'lowlevel.mfcc.var',
-                             'lowlevel.pitch_salience.mean',
-                             'lowlevel.pitch_salience.var',
-                             'sfx.logattacktime.mean']
+               'lowlevel.spectral_centroid.var',
+               'lowlevel.mfcc.mean',
+               'lowlevel.mfcc.var',
+               'lowlevel.pitch_salience.mean',
+               'lowlevel.pitch_salience.var',
+               'sfx.logattacktime.mean']
 stats = ['mean', 'var']
 
 
@@ -86,7 +86,7 @@ def downloadSoundsFreesound(queryText="", API_Key="", outputDir="", topNResults=
     indCnt = 0
     totalSnds = qRes.count
     # creating directories to store output and downloading sounds and their descriptors
-    while(1):
+    while 1:
         sound = qRes[indCnt - ((pageNo - 1) * page_size)]
         outDir1 = os.path.join(outputDir, queryText, str(sound.id))
         if os.path.exists(outDir1):

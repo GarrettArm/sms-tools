@@ -52,17 +52,17 @@ mYst = resample(np.maximum(-200, mXr), mXr.size * stocf)  # decimate the mag spe
 maxplotfreq = 8000.0
 plt.figure(1, figsize=(9, 7))
 plt.subplot(2, 1, 1)
-binFreq = (fs / 2.0) * np.arange(mX.size) / (mX.size)
+binFreq = (fs / 2.0) * np.arange(mX.size) / mX.size
 plt.plot(binFreq, mX, 'r', lw=1.5)
 plt.axis([0, maxplotfreq, -100, max(mX) + 2])
 plt.plot(hfreq, hmag, marker='x', color='b', linestyle='', lw=2, markeredgewidth=1.5)
 plt.title('mX + harmonics')
 
 plt.subplot(2, 1, 2)
-binFreq = (fs / 2.0) * np.arange(mXr.size) / (mXr.size)
+binFreq = (fs / 2.0) * np.arange(mXr.size) / mXr.size
 plt.plot(binFreq, mYh, 'r', lw=.6, label='mYh')
 plt.plot(binFreq, mXr, 'r', lw=1.0, label='mXr')
-binFreq = (fs / 2.0) * np.arange(mYst.size) / (mYst.size)
+binFreq = (fs / 2.0) * np.arange(mYst.size) / mYst.size
 plt.plot(binFreq, mYst, 'r', lw=1.5, label='mYst')
 plt.axis([0, maxplotfreq, -100, max(mYh) + 2])
 plt.legend(prop={'size': 15})

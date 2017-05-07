@@ -68,7 +68,7 @@ def analysis(inputFile1='../../sounds/violin-B3.wav', window1='blackman', M1=100
     plt.autoscale(tight=True)
 
     # plot harmonic on top of stochastic spectrogram of sound 1
-    if (hfreq1.shape[1] > 0):
+    if hfreq1.shape[1] > 0:
         harms = np.copy(hfreq1)
         harms = harms * np.less(harms, maxplotfreq)
         harms[harms == 0] = np.nan
@@ -90,7 +90,7 @@ def analysis(inputFile1='../../sounds/violin-B3.wav', window1='blackman', M1=100
     plt.autoscale(tight=True)
 
     # plot harmonic on top of stochastic spectrogram of sound 2
-    if (hfreq2.shape[1] > 0):
+    if hfreq2.shape[1] > 0:
         harms = np.copy(hfreq2)
         harms = harms * np.less(harms, maxplotfreq)
         harms[harms == 0] = np.nan
@@ -154,7 +154,7 @@ def transformation_synthesis(inputFile1, fs, hfreq1, hmag1, stocEnv1, inputFile2
     plt.autoscale(tight=True)
 
     # plot transformed harmonic on top of stochastic spectrogram
-    if (yhfreq.shape[1] > 0):
+    if yhfreq.shape[1] > 0:
         harms = np.copy(yhfreq)
         harms = harms * np.less(harms, maxplotfreq)
         harms[harms == 0] = np.nan

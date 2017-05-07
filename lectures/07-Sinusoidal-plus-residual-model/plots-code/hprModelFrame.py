@@ -59,7 +59,7 @@ plt.axis([0, M, min(x[pos - hM1:pos + hM2] * w), max(x[pos - hM1:pos + hM2] * w)
 plt.title('x (flute-A4.wav)')
 
 plt.subplot(3, 2, 3)
-binFreq = (fs / 2.0) * np.arange(mX.size) / (mX.size)
+binFreq = (fs / 2.0) * np.arange(mX.size) / mX.size
 plt.plot(binFreq, mX, 'r', lw=1.5)
 plt.axis([0, maxplotfreq, -90, max(mX) + 2])
 plt.plot(hfreq, hmag, marker='x', color='b', linestyle='', markeredgewidth=1.5)
@@ -72,7 +72,7 @@ plt.plot(hfreq, hphase, marker='x', color='b', linestyle='', markeredgewidth=1.5
 plt.title('pX + harmonics')
 
 plt.subplot(3, 2, 4)
-binFreq = (fs / 2.0) * np.arange(mXr.size) / (mXr.size)
+binFreq = (fs / 2.0) * np.arange(mXr.size) / mXr.size
 plt.plot(binFreq, mYh, 'r', lw=.8, label='mYh')
 plt.plot(binFreq, mXr, 'r', lw=1.5, label='mXr')
 plt.axis([0, maxplotfreq, -90, max(mYh) + 2])
@@ -80,7 +80,7 @@ plt.legend(prop={'size': 10})
 plt.title('mYh + mXr')
 
 plt.subplot(3, 2, 6)
-binFreq = (fs / 2.0) * np.arange(mXr.size) / (mXr.size)
+binFreq = (fs / 2.0) * np.arange(mXr.size) / mXr.size
 plt.plot(binFreq, pYh, 'c', lw=.8, label='pYh')
 plt.plot(binFreq, pXr, 'c', lw=1.5, label='pXr')
 plt.axis([0, maxplotfreq, -5, 25])

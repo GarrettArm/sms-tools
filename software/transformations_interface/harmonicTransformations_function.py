@@ -73,7 +73,7 @@ def analysis(inputFile='../../sounds/vignesh.wav', window='blackman', M=1201, N=
     plt.xlabel('time (sec)')
     plt.title('input sound: x')
 
-    if (hfreq.shape[1] > 0):
+    if hfreq.shape[1] > 0:
         plt.subplot(3, 1, 2)
         tracks = np.copy(hfreq)
         numFrames = tracks.shape[0]
@@ -138,7 +138,7 @@ def transformation_synthesis(inputFile, fs, hfreq, hmag, freqScaling=np.array([0
 
     # plot the transformed sinusoidal frequencies
     plt.subplot(2, 1, 1)
-    if (yhfreq.shape[1] > 0):
+    if yhfreq.shape[1] > 0:
         tracks = np.copy(yhfreq)
         tracks = tracks * np.less(tracks, maxplotfreq)
         tracks[tracks <= 0] = np.nan

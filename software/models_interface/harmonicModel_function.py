@@ -66,7 +66,7 @@ def main(inputFile='../../sounds/vignesh.wav', window='blackman', M=1201, N=2048
 
     # plot the harmonic frequencies
     plt.subplot(3, 1, 2)
-    if (hfreq.shape[1] > 0):
+    if hfreq.shape[1] > 0:
         numFrames = hfreq.shape[0]
         frmTime = H * np.arange(numFrames) / float(fs)
         hfreq[hfreq <= 0] = np.nan

@@ -29,7 +29,7 @@ def main(inputFile='../../sounds/piano.wav', window='blackman', M=511, N=1024, t
 
     # get a fragment of the input sound of size M
     sample = int(time * fs)
-    if (sample + M >= x.size or sample < 0):                          # raise error if time outside of sound
+    if sample + M >= x.size or sample < 0:                          # raise error if time outside of sound
         raise ValueError("Time outside sound boundaries")
     x1 = x[sample:sample + M]
 

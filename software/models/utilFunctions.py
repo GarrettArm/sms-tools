@@ -51,15 +51,15 @@ def wavread(filename):
     returns fs: sampling rate of file, x: floating point array
     """
 
-    if not os.path.isfile(filename):                  # raise error if wrong input file
+    if not os.path.isfile(filename):
         raise ValueError("Input file is wrong")
 
     fs, x = read(filename)
 
-    if len(x.shape) != 1:                                   # raise error if more than one channel
+    if len(x.shape) != 1:
         raise ValueError("Audio file should be mono")
 
-    if fs != 44100:                                         # raise error if more than one channel
+    if fs != 44100:
         raise ValueError("Sampling rate of input sound should be 44100")
 
     # scale down and convert audio into floating point number in range of -1 to 1
@@ -72,15 +72,13 @@ def wavplay(filename):
     Play a wav audio file from system using OS calls
     filename: name of file to read
     """
-    if not os.path.isfile(filename):                  # raise error if wrong input file
+    if not os.path.isfile(filename):
         print("Input file does not exist. Make sure you computed the analysis/synthesis")
     else:
         if sys.platform == "linux" or sys.platform == "linux2":
-            # linux
             subprocess.call(["aplay", filename])
 
         elif sys.platform == "darwin":
-            # OS X
             subprocess.call(["afplay", filename])
         elif sys.platform == "win32":
             if winsound_imported:
@@ -276,17 +274,17 @@ def f0Twm(pfreq, pmag, ef0max, minf0, maxf0, f0t=0):
     f0t: f0 of previous frame if stable
     returns f0: fundamental frequency in Hz
     """
-    if (minf0 < 0):                                  # raise exception if minf0 is smaller than 0
+    if minf0 < 0:                                  # raise exception if minf0 is smaller than 0
         raise ValueError("Minumum fundamental frequency (minf0) smaller than 0")
 
-    if (maxf0 >= 10000):                             # raise exception if maxf0 is bigger than 10000Hz
+    if maxf0 >= 10000:                             # raise exception if maxf0 is bigger than 10000Hz
         raise ValueError("Maximum fundamental frequency (maxf0) bigger than 10000Hz")
 
     if (pfreq.size < 3) & (f0t == 0):                # return 0 if less than 3 peaks and not previous f0
         return 0
 
     f0c = np.argwhere((pfreq > minf0) & (pfreq < maxf0))[:, 0]  # use only peaks within given range
-    if (f0c.size == 0):                              # return 0 if no peaks within range
+    if f0c.size == 0:                              # return 0 if no peaks within range
         return 0
     f0cf = pfreq[f0c]                                # frequencies of peak candidates
     f0cm = pmag[f0c]                                 # magnitude of peak candidates

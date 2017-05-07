@@ -67,7 +67,7 @@ def analysis(inputFile='../../sounds/mridangam.wav', window='hamming', M=801, N=
     plt.title('input sound: x')
 
     # plot the sinusoidal frequencies
-    if (tfreq.shape[1] > 0):
+    if tfreq.shape[1] > 0:
         plt.subplot(3, 1, 2)
         tracks = np.copy(tfreq)
         tracks = tracks * np.less(tracks, maxplotfreq)
@@ -128,7 +128,7 @@ def transformation_synthesis(inputFile, fs, tfreq, tmag, freqScaling=np.array([0
     maxplotfreq = 15000.0
 
     # plot the transformed sinusoidal frequencies
-    if (ytfreq.shape[1] > 0):
+    if ytfreq.shape[1] > 0:
         plt.subplot(2, 1, 1)
         tracks = np.copy(ytfreq)
         tracks = tracks * np.less(tracks, maxplotfreq)

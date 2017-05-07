@@ -29,7 +29,7 @@ run_pitch_salience_function = PitchSalienceFunction(magnitudeThreshold=30)
 run_pitch_salience_function_peaks = PitchSalienceFunctionPeaks(minFrequency=100, maxFrequency=300)
 run_pitch_contours = PitchContours(hopSize=hopSize, peakFrameThreshold=0.8)
 run_pitch_contours_melody = PitchContoursMelody(guessUnvoiced=guessUnvoiced,
-                                                                                                hopSize=hopSize)
+                                                hopSize=hopSize)
 
 pool = Pool()
 

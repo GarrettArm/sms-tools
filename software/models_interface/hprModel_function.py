@@ -81,7 +81,7 @@ def main(inputFile='../../sounds/sax-phrase-short.wav', window='blackman', M=601
     plt.autoscale(tight=True)
 
     # plot harmonic frequencies on residual spectrogram
-    if (hfreq.shape[1] > 0):
+    if hfreq.shape[1] > 0:
         harms = hfreq * np.less(hfreq, maxplotfreq)
         harms[harms == 0] = np.nan
         numFrames = int(harms[:, 0].size)

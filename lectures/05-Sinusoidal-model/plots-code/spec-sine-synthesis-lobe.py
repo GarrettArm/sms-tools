@@ -42,7 +42,7 @@ Y[:hN] = mY * np.exp(1j * pX)
 Y[hN + 1:] = mY[:0:-1] * np.exp(-1j * pX[:0:-1])
 
 y = ifft(Y)
-SNR1 = -10 * np.log10((powerX - powerY) / (powerX))
+SNR1 = -10 * np.log10((powerX - powerY) / powerX)
 
 freqaxis = fs * np.arange(0, N / 2) / float(N)
 taxis = np.arange(N) / float(fs)
@@ -63,7 +63,7 @@ plt.subplot(3, 2, 5)
 yerror = xw - y
 plt.plot(yerror, 'k', lw=1.5)
 plt.axis([0, M, -.003, .003])
-plt.title("error function: x-y; SNR = ${%d}$ dB" % (SNR1))
+plt.title("error function: x-y; SNR = ${%d}$ dB" % SNR1)
 
 w = blackmanharris(M)
 xw = x * w
@@ -85,7 +85,7 @@ Y[:hN] = mY * np.exp(1j * pX)
 Y[hN + 1:] = mY[:0:-1] * np.exp(-1j * pX[:0:-1])
 
 y = ifft(Y)
-SNR2 = -10 * np.log10((powerX - powerY) / (powerX))
+SNR2 = -10 * np.log10((powerX - powerY) / powerX)
 
 plt.subplot(3, 2, 2)
 plt.plot(20 * np.log10(mY[:hN]) - max(20 * np.log10(mY[:hN])), 'r', lw=1.5)
@@ -102,7 +102,7 @@ plt.subplot(3, 2, 6)
 yerror2 = xw - y
 plt.plot(yerror2, 'k', lw=1.5)
 plt.axis([0, M, -.003, .003])
-plt.title("error function: x-y; SNR = ${%d}$ dB" % (SNR2))
+plt.title("error function: x-y; SNR = ${%d}$ dB" % SNR2)
 
 plt.tight_layout()
 plt.savefig('spec-sine-synthesis-lobe.png')

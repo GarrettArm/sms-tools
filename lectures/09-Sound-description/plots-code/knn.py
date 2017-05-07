@@ -2,9 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import mode
 
+from euclidian import eucDist
 
-def eucDist(vec1, vec2):
-    return np.sqrt(np.sum(np.power(np.array(vec1) - np.array(vec2), 2)))
 
 n = 30
 qn = 8

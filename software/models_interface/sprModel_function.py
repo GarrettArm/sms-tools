@@ -82,7 +82,7 @@ def main(inputFile='../../sounds/bendir.wav', window='hamming', M=2001, N=2048, 
     plt.autoscale(tight=True)
 
     # plot the sinusoidal frequencies on top of the residual spectrogram
-    if (tfreq.shape[1] > 0):
+    if tfreq.shape[1] > 0:
         tracks = tfreq * np.less(tfreq, maxplotfreq)
         tracks[tracks <= 0] = np.nan
         plt.plot(frmTime, tracks, color='k')
