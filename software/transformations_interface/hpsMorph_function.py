@@ -41,8 +41,8 @@ def analysis(inputFile1='../../sounds/violin-B3.wav', window1='blackman', M1=100
     # hop size (has to be 1/4 of Ns)
     H = 128
     # read input sounds
-    (fs1, x1) = UF.wavread(inputFile1)
-    (fs2, x2) = UF.wavread(inputFile2)
+    fs1, x1 = UF.wavread(inputFile1)
+    fs2, x2 = UF.wavread(inputFile2)
     # compute analysis windows
     w1 = get_window(window1, M1)
     w2 = get_window(window2, M2)

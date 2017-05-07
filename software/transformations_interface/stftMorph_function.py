@@ -28,8 +28,8 @@ def main(inputFile1='../../sounds/ocean.wav', inputFile2='../../sounds/speech-ma
     """
 
     # read input sounds
-    (fs, x1) = UF.wavread(inputFile1)
-    (fs, x2) = UF.wavread(inputFile2)
+    fs, x1 = UF.wavread(inputFile1)
+    fs, x2 = UF.wavread(inputFile2)
 
     # compute analysis windows
     w1 = get_window(window1, M1)

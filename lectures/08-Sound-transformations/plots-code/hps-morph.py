@@ -41,8 +41,8 @@ harmDevSlope2 = 0.01
 Ns = 512
 H = 128
 
-(fs1, x1) = UF.wavread(inputFile1)
-(fs2, x2) = UF.wavread(inputFile2)
+fs1, x1 = UF.wavread(inputFile1)
+fs2, x2 = UF.wavread(inputFile2)
 w1 = get_window(window1, M1)
 w2 = get_window(window2, M2)
 hfreq1, hmag1, hphase1, stocEnv1 = HPS.hpsModelAnal(
